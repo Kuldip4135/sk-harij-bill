@@ -254,10 +254,10 @@ calculateTotalBtn.addEventListener("click", () => {
 });
 
 let pdf_modifier = {
-  margin: 1,
+  margin: 0.5,
   filename: `${customerName.value} -- ${dateInGuj}`,
   image: { type: "jpeg", quality: 1 },
-  html2canvas: { scale: 4 },
+  html2canvas: { scale: 3 },
   jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
 };
 
