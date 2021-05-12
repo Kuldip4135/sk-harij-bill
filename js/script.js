@@ -255,7 +255,7 @@ calculateTotalBtn.addEventListener("click", () => {
 
 let pdf_modifier = {
   margin: 0.5,
-  filename: `${customerName.value} -- ${dateInGuj}`,
+  filename: `SK હારીજ બિલ-- ${dateInGuj}`,
   image: { type: "jpeg", quality: 1 },
   html2canvas: { scale: 3 },
   jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
