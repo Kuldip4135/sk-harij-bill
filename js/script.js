@@ -1,75 +1,3 @@
-// //Varibale
-// const vegetableName = document.getElementById("vegetableName");
-// const vegetableKG = document.getElementById("vegetableKG");
-// const vegetablePriceForKG = document.getElementById("vegetablePriceForKG");
-// const vegetablePrice = document.getElementById("vegetablePrice");
-// const recentMoney = document.getElementById("recentMoney");
-// const billingForm = document.getElementById("billingForm");
-// const calculateTotalBtn = document.getElementById("calculateTotal");
-// //Bill Div
-// const vegetableNameDiv = document.querySelector(".vegetableNameDiv");
-// const vegetableKGDiv = document.querySelector(".vegetableKGDiv");
-// const vegetablePriceDiv = document.querySelector(".vegetablePriceDiv");
-// const vegetableTotalPriceDiv = document.querySelector(
-//   ".vegetableTotalPriceDiv"
-// );
-
-// //flex bill
-// const vegetableNumberDiv = document.querySelector(".vegetableNumber");
-// const flexTotalPriceDiv = document.querySelector(".flexTotalPrice");
-// const flexRecentMoneyDiv = document.querySelector(".flexRecentMoney");
-// const flexFinalSubTotalDiv = document.querySelector(".flexFinalSubTotal");
-
-// let index = 1;
-
-// billingForm.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   const vegetableKGValue = vegetableKG.value;
-//   const vegetablePriceForKGValue = vegetablePriceForKG.value;
-
-//   // console.log(vegetableKGValue * vegetablePriceForKGValue);
-//   addItemToBill();
-// });
-
-// function addItemToBill() {
-//   let vgNameValue = document.createElement("h5");
-//   let vgWeightValue = document.createElement("h5");
-//   let vgPriceValue = document.createElement("h5");
-//   let vgTotalPriceValue = document.createElement("h5");
-//   vgTotalPriceValue.classList.add("item-price");
-//   let vegetableNumberValue = document.createElement("h5");
-
-//   vgNameValue.innerText = vegetableName.value;
-//   vgWeightValue.innerText = vegetableKG.value;
-//   vgPriceValue.innerText = vegetablePriceForKG.value;
-//   vgTotalPriceValue.innerText = vegetableKG.value * vegetablePriceForKG.value;
-//   vegetableNumberValue.innerText = index;
-
-//   vegetableNameDiv.appendChild(vgNameValue);
-//   vegetableKGDiv.appendChild(vgWeightValue);
-//   vegetablePriceDiv.appendChild(vgPriceValue);
-//   vegetableTotalPriceDiv.appendChild(vgTotalPriceValue);
-//   vegetableNumberDiv.appendChild(vegetableNumberValue);
-
-//   index++;
-// }
-
-// calculateTotalBtn.addEventListener("click", (e) => {
-//   e.preventDefault();
-
-//   let flexTotalPriceValue = document.createElement("h5");
-//   let flexRecentMoneyValue = document.createElement("h5");
-//   let flexFinalSubTotalValue = document.createElement("h5");
-
-//   flexRecentMoneyValue.innerText = recentMoney.value || 0;
-//   flexFinalSubTotalValue.innerText = 100;
-//   flexTotalPriceValue.innerText = 100;
-
-//   flexTotalPriceDiv.appendChild(flexTotalPriceValue);
-//   flexRecentMoneyDiv.appendChild(flexRecentMoneyValue);
-//   flexFinalSubTotalDiv.appendChild(flexFinalSubTotalValue);
-// });
-
 const recentMoney = document.getElementById("recentMoney");
 const laborMoney = document.getElementById("laborMoney");
 const customerName = document.getElementById("customerName");
@@ -127,7 +55,7 @@ customerForm.addEventListener("submit", (e) => {
     ".customer-village-title"
   ).innerText = `ગામ :- ${customerVillageName.value}`;
 
-  alert("customer added now enter vegetables information");
+  alert("ગ્રાહકનું નામ સફળતાપૂર્વક ઉમેરવામાં આવ્યું છે");
 });
 
 //Add vegetables to bill
@@ -204,14 +132,14 @@ vegetableBillForm.addEventListener("submit", (e) => {
     .appendChild(vegetableItemPrice);
 
   index++;
-  alert("item added");
+  alert("શાકભાજી વિગતો સફળતાપૂર્વક ઉમેરવામાં આવી છે");
 });
 
 //prevnt from submiting form
 const extraMoneyForm = document.querySelector(".extraMoneyForm");
 extraMoneyForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  alert("money has been added");
+  alert("મજૂરી પૈસા અને છેલ્લા બિલ ના બાકી ના પૈસા ઉમેરવામાં આવ્યા છે");
 });
 
 //show total
@@ -265,5 +193,6 @@ window.onload = function () {
   document.getElementById("downloadBill").addEventListener("click", () => {
     const bill = this.document.querySelector(".bill");
     html2pdf().from(bill).set(pdf_modifier).save();
+    alert("બિલ સફળતાપૂર્વક ડાઉનલોડ કરવામાં આવ્યું છે");
   });
 };
