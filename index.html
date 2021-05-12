@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bill Generator</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/4d129299c7.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="google_translate_element"></div>
+      <div class="form-container">
+        <h1 class="form-heading">ગ્રાહકની વિગતો</h1>
+        <form id="customerForm">
+          <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input
+              type="text"
+              id="customerName"
+              placeholder="ગ્રાહક નુ નામ"
+              required
+            />
+            <span class="bar"></span>
+          </div>
+
+          <div class="input-group">
+            <i class="fas fa-city"></i>
+            <input
+              type="text"
+              id="customerVillageName"
+              placeholder="ગ્રાહક નું ગામ"
+              required
+            />
+            <span class="bar"></span>
+          </div>
+
+          <div class="input-group">
+            <button>ગ્રાહક ઉમેરો</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="form-container">
+        <h1 class="form-heading">શાકભાજીની વિગતો</h1>
+        <form id="vegetableBillForm">
+          <div class="input-group">
+            <i class="fas fa-store"></i>
+            <input
+              type="text"
+              id="vegetableName"
+              placeholder="શાખભાજી નુ નામ"
+              required
+            />
+            <span class="bar"></span>
+          </div>
+
+          <div class="input-group">
+            <i class="fas fa-balance-scale"></i>
+            <input
+              type="tel"
+              id="vegetableKG"
+              placeholder="વજન કી. ગ્રા."
+              required
+            />
+            <span class="bar"></span>
+          </div>
+
+          <div class="input-group">
+            <i class="fas fa-hand-holding-usd"></i>
+            <input
+              type="tel"
+              id="vegetablePriceForKG"
+              placeholder="ભાવ (૧ કિલો)"
+              required
+            />
+            <span class="bar"></span>
+          </div>
+
+          <div class="input-group">
+            <button type="submit">બિલમાં શાકભાજી ઉમેરો</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="form-container">
+        <h1 class="form-heading">વધારાના નાણાં</h1>
+        <form class="extraMoneyForm">
+          <div class="input-group">
+            <i class="fas fa-male"></i>
+            <input
+              type="tel"
+              id="laborMoney"
+              placeholder="labour charges"
+              required
+            />
+            <span class="bar"></span>
+          </div>
+
+          <div class="input-group">
+            <i class="far fa-money-bill-alt"></i>
+            <input
+              type="tel"
+              id="recentMoney"
+              required
+              placeholder="The money of the last bill"
+            />
+            <span class="bar"></span>
+          </div>
+
+          <div class="input-group">
+            <button>બિલમાં ઉમેરો</button>
+          </div>
+        </form>
+
+        <div class="btnGroup">
+          <div class="input-group">
+            <button type="submit" id="calculateTotal">Calculate Total</button>
+          </div>
+          <div class="input-group">
+            <button type="submit" id="downloadBill">Download</button>
+          </div>
+        </div>
+      </div>
+
+      <section class="bill">
+        <div class="bill-godName">
+          <h5>શ્રી ૧ |</h5>
+          <h5>શ્રી ગણેશાય નમઃ</h5>
+        </div>
+        <div class="bill-header">
+          <div class="bill-topHeader">
+            <img
+              src="./images/logo-removebg-preview.png"
+              class="bill-logo"
+              alt="logo"
+            />
+            <h1>સંદીપ કનુભાઈ ઠક્કર</h1>
+            <img src="./images/ganpati.png" alt="ganpati-photo" />
+          </div>
+          <hr />
+          <div class="bill-topMiddle">
+            <div class="bill-ownerInfo">
+              <h2>
+                બટેકા, ડુંગળી તથા શાખભાજી ના <br />
+                વહેપારી અને કમિશન એજન્ટ.
+              </h2>
+              <h2>
+                નટુભાઈ ઠક્કર :- ૯૮૨૫૨૪૬૮૨૩ <br />
+                સંદીપ ઠક્કર :- ૯૦૯૯૫૩૬૫૨૫
+              </h2>
+            </div>
+            <p>હારીજ-હાઈવે, બસ સ્ટેન્ડ ની સામે, હારીજ - ૩૮૪૨૪૦</p>
+            <hr />
+          </div>
+          <div class="bill-topBottom">
+            <div class="customer-detail">
+              <h2 class="customer-name-title">નામ :-</h2>
+              <h2 class="customer-village-title">ગામ :-</h2>
+            </div>
+            <h2 class="current-date">તારીખ :-</h2>
+          </div>
+        </div>
+        <hr />
+        <div class="bill-details grid-container">
+          <!-- Grid Item #1 -->
+          <div class="grid-item vegetableIndex">
+            <h4>દાગીના</h4>
+          </div>
+          <!-- Grid Item #2 -->
+          <div class="grid-item vegetableNameDiv">
+            <h4>માલ ની વિગત</h4>
+          </div>
+          <!-- Grid Item #3 -->
+          <div class="grid-item vegetableKGDiv">
+            <h4>વજન કી. ગ્રા.</h4>
+          </div>
+          <!-- Grid Item #4 -->
+          <div class="grid-item vegetablePriceForKGDiv">
+            <h4>ભાવ (૧ કિલો)</h4>
+          </div>
+          <!-- Grid Item #5 -->
+          <div class="grid-item vegetableItemPricesDiv">
+            <h4>માલ ની કિંમત</h4>
+          </div>
+        </div>
+        <hr />
+        <div class="bill-footer">
+          <div class="bill-footerLeft">
+            <img
+              src="./images/18512156-sack-of-potatoes-with-onion-and-garlic-removebg-preview.png"
+              alt="vegetables-pic-1"
+            />
+            <img src="./images/vegetables-pic-1.png" alt="vegetables-pic-2" />
+          </div>
+          <div class="bill-footerMiddle">
+            <h5 class="subtotal-title">કુલ રકમ</h5>
+            <h5 class="labor-title">મજૂરી</h5>
+            <h5 class="recentMoney-title">આગળ ના બાકી</h5>
+            <h5 class="final-title">ફાઇનલ ટોટલ</h5>
+          </div>
+          <div class="bill-footerRight">
+            <h5 class="subtotal-price"></h5>
+            <h5 class="labor-price"></h5>
+            <h5 class="recentMoney-price"></h5>
+            <h5 class="total-price"></h5>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
