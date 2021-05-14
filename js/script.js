@@ -1,5 +1,6 @@
 const recentMoney = document.getElementById("recentMoney");
 const laborMoney = document.getElementById("laborMoney");
+const advanceMoney = document.getElementById("advanceMoney");
 const customerName = document.getElementById("customerName");
 const customerVillageName = document.getElementById("customerVillageName");
 const bill = document.querySelector(".bill");
@@ -159,7 +160,10 @@ calculateTotalBtn.addEventListener("click", () => {
 
   let finalMoney = parseFloat(totalMoney.toFixed(2));
   let totalPrice =
-    parseFloat(laborMoney.value) + parseFloat(recentMoney.value) + finalMoney;
+    parseFloat(laborMoney.value) +
+    parseFloat(recentMoney.value) +
+    finalMoney -
+    parseFloat(advanceMoney.value);
 
   let finalMoneyGuj = translateNumerals(finalMoney, "Gujarati");
 
@@ -172,6 +176,11 @@ calculateTotalBtn.addEventListener("click", () => {
 
   document.querySelector(".recentMoney-price").innerText = translateNumerals(
     parseFloat(recentMoney.value),
+    "Gujarati"
+  );
+
+  document.querySelector(".advanceMoney-price").innerText = translateNumerals(
+    parseFloat(advanceMoney.value),
     "Gujarati"
   );
 
