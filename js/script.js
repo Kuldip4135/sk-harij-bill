@@ -45,7 +45,6 @@ document.querySelector(".current-date").innerText = `તારીખ :- ${dateIn
 
 //Append dynamically value to bill
 const customerForm = document.getElementById("customerForm");
-
 customerForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -56,12 +55,13 @@ customerForm.addEventListener("submit", (e) => {
     ".customer-village-title"
   ).innerText = `ગામ :- ${customerVillageName.value}`;
 
+  pdf_modifier.filename = `${customerName.value} -- ${dateInGuj}`;
+
   alert("ગ્રાહકનું નામ સફળતાપૂર્વક ઉમેરવામાં આવ્યું છે");
 });
 
 //Add vegetables to bill
 const vegetableBillForm = document.getElementById("vegetableBillForm");
-
 vegetableBillForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -192,7 +192,7 @@ calculateTotalBtn.addEventListener("click", () => {
 
 let pdf_modifier = {
   margin: 0.5,
-  filename: `SK હારીજ બિલ-- ${dateInGuj}`,
+  filename: `${customerName.value}-- ${dateInGuj}`,
   image: { type: "jpeg", quality: 1 },
   html2canvas: { scale: 3 },
   jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
